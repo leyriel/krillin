@@ -1,16 +1,17 @@
 import axios from 'axios';
-import config from '../config';
+import config from '../env';
 
 const axiosClient = axios.create();
+console.log(config.apiUrl);
 
 axiosClient.defaults.baseURL = config.apiUrl;
 
 //axiosClient.defaults.headers['Authorization'] = 'Bearer ' + localStorage.getItem('token');
 axiosClient.defaults.headers.post['Content-Type'] = 'application/json';
 
-const RestClient = axiosClient;
+const HttpClient = axiosClient;
 
-const RestClientConfig = {
+const HttpClientConfig = {
     onDownloadProgress: progressEvent => console.log(progressEvent,"download"),
     onUploadProgress: progressEvent => {
         const totalLength = progressEvent.lengthComputable ? progressEvent.total : progressEvent.target.getResponseHeader('content-length') || progressEvent.target.getResponseHeader('x-decompressed-content-length');
@@ -28,4 +29,4 @@ const RestClientConfig = {
     }
 };
 
-export {RestClient, RestClientConfig}
+export {HttpClient, HttpClientConfig}

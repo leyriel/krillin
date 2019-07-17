@@ -4,12 +4,15 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import paymentReducer from "./data-model/reducer";
 
+// Action
+import * as paymentAction from './data-model/actions';
+
 const mapStateToProps = state => ({
     stripeCustomer: state.paymentReducer.stripeCustomer,
 });
 
 const mapDispatchToProps = dispatch => ({
-
+    actions: bindActionCreators(paymentAction, dispatch),
 });
 
 class CheckoutForm extends Component {
@@ -18,18 +21,9 @@ class CheckoutForm extends Component {
         this.submit = this.submit.bind(this);
     }
     async submit(ev) {
-        let {token} = await this.props.stripe.createToken({name: "Name"});
-        console.log(token);
-/*        let response = await fetch("/charge", {
-            method: "POST",
-            headers: {"Content-Type": "text/plain"},
-            body: token.id
-        });
-
-        if (response.ok) {
-            console.log("Purchase Complete!");
-            console.log(response.token);
-        }*/
+/*        let {token} = await this.props.stripe.createToken({name: "Name"});
+        console.log(token);*/
+        this.props.actions.saveStripeCustomer('Eloise Norberto');
     }
 
     render() {
@@ -43,7 +37,10 @@ class CheckoutForm extends Component {
     }
 }
 
+let form = injectStripe(CheckoutForm);
+
+
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(CheckoutForm);
+)(form);

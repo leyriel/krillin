@@ -9,7 +9,10 @@ export default function handleContributorActions(state = initialState, action) {
         case SAVE_STRIPE_CUSTOMER:
             return {
                 ...state,
-                stripeCustomer: action.data
+                stripeCustomer: {
+                    ...state,
+                    name: action.data
+                }
             };
 
         default:
