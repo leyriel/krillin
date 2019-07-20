@@ -1,0 +1,13 @@
+.navigation {
+  background-color: #6959b0;
+  height: 80px;
+  display: flex;
+  text-align: center;
+}
+
+.navigation p {
+  margin: auto;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #fff;
+}
