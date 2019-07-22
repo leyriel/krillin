@@ -74,13 +74,22 @@ class HomeComponent extends Component {
                                     <div>
                                         <ul>
                                             <li>
-                                                <Link to="/">Home</Link>
+                                                <Link to="/">Tableau de bord</Link>
                                             </li>
                                             <li>
                                                 <Link to="/abonnement">Abonnement</Link>
                                             </li>
                                             <li>
-                                                <Link to="/shoelaces">Shoelaces</Link>
+                                                <Link to="/institute">Mon Institution</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/schools">Mes Etablissements</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/teachers">Mes Formateurs</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/students">Mes Elèves</Link>
                                             </li>
                                         </ul>
                                     </div>
