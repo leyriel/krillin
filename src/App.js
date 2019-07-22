@@ -1,12 +1,16 @@
 import React from 'react';
 import './App.css';
+import $ from "jquery";
+import 'bootstrap/dist/css/bootstrap.css';
 
 //Components
-import CheckoutForm from './components/payment/stripePrivider';
+import HomeComponent from './components/home/home';
 
 function App() {
     return (
-        <CheckoutForm />
+        <div>
+            <HomeComponent />
+        </div>
     );
 }
 
